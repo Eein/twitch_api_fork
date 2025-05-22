@@ -101,7 +101,7 @@ defmodule Mix.Tasks.Twitch.Auth do
     url = "#{@base_url}?#{params}"
 
     case :os.type() do
-      {:unix, _} -> System.cmd("open", [url])
+      {:unix, _} -> System.cmd("xdg-open", [url])
       {:win32, _} -> System.cmd("cmd", ["/c", "start", String.replace(url, "&", "^&")])
     end
 
